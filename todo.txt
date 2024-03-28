@@ -1,0 +1,19 @@
+hide mailer.js pass in a hidden file
+hide sql.js pass in a hidden file 
+
+sql.js 
+    Hide pass 
+
+mailer.js 
+    Hide pass 
+
+login.html
+    build 
+
+signup.html 
+    build
+    verify email
+
+contact.html 
+    evenly spaced form fields 
+    if signed in prompt user info and message, else just prompt for the message

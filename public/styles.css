@@ -1,0 +1,26 @@
+/* Apply colors from the colour scheme: https://colorhunt.co/palette/ffc94ac08b5c795458453f78 */
+body {
+    background-color: #ffc94a;
+    color: #795458;
+}
+
+.navbar {
+    background-color: #c08b5c;
+}
+
+.btn-primary {
+    background-color: #ff4f28;
+    border-color: #ff4f28;
+}
+
+.btn-primary:hover {
+    background-color: #d62b00;
+    border-color: #d62b00;
+}
+
+/* Search bar */
+search-bar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
