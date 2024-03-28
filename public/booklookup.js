@@ -1,3 +1,16 @@
+console.log('loading book lookup')
+
+// Function to fetch and display books
+function displayBooks() {
+    fetch('http://localhost:8080/booksfetch')
+        .then(response => response.json())
+        .then(data => {
+            //for each book in the res
+            search(data, "");
+        })
+        .catch(error => console.error('Error fetching books:', error));
+}
+
 function handleSearch() {
     const searchTerm = document.getElementById('searchData').value;
     fetch('http://localhost:8080/booksfetch')
@@ -46,4 +59,9 @@ function search(books, searchTerm) {
     });
 }
 
-document.getElementById('searchBtn').addEventListener('click', handleSearch);
+document.addEventListener('DOMContentLoaded', function() {
+    displayBooks();
+    document.getElementById('searchBtn').addEventListener('click', handleSearch);
+});
+
+console.log('loaded book lookup')

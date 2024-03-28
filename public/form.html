@@ -1,15 +1,16 @@
 <!-- Content -->
+<script src="mailman.js"></script>
 <div class="container mt-5">
     <h1>Contact Us</h1>
-    <form class="input-group" onsubmit="handleSearch(); return false;">
+    <form class="input-group" onsubmit="handleSubmit(); return false;">
         <div class="row mb-3">
             <div class="col-md-6">
-                <label for="firstName" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="firstName" required>
+                <label for="first" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="first" required>
             </div>
             <div class="col-md-6">
-                <label for="lastName" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="lastName" required>
+                <label for="last" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="last" required>
             </div>
             <div class="col-md-6">
                 <label for="email" class="form-label">Email</label>
@@ -20,7 +21,7 @@
                 <input type="tel" class="form-control" id="phone" required>
             </div>
             <div class="col">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
             </div>
         </div>
     </form>

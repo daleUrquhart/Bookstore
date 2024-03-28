@@ -17,3 +17,13 @@ signup.html
 contact.html 
     evenly spaced form fields 
     if signed in prompt user info and message, else just prompt for the message
+
+displaylibrary.js
+    redundant??
+        it just displays booklookup with searchData being ""
+
+index.js 
+    add mail connection verification
+
+general 
+    add verification and error handling console logs
