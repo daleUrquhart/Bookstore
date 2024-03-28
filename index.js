@@ -36,6 +36,11 @@ var transporter = nodemailer.createTransport({
 const app = express();
 const staticDir = path.join(__dirname, 'public');
 
+app.use(express.json());
+
+//middleware to parse URL-encoded bodies
+app.use(express.urlencoded({ extended: true }));
+
 //routes:
 app.use(express.static(staticDir));
 
@@ -63,19 +68,29 @@ app.get('/booksfetch', (req, res) => {
     });
 });
 
-app.get('/mailman', (req, res) => {
-    //mail data
-    var mailOptions = {
-        from:       'daleurquhart1@gmail.com',
-        to:         'daleurquhart1@upei.ca',
-        subject:    first + " " + last + ", " + email,
-        text:       searchTerm
-    }
+app.post('/mailman', (req, res) => {
+    console.log('sending mail')
+    // Extract data from request body
+    const { message, phone, email, first, last } = req.body;
 
-    transporter.sendMail(mailOptions, function(err, info){
-        if(err) console.log(err)
-        else    console.log('email sent to ' + info.repsonse)
-    })  
+    // Mail data
+    var mailOptions = {
+        from: 'daleurquhart1@gmail.com',
+        to: 'daleurquhart1@gmail.com',
+        subject: `${first} ${last}, ${email}, ${phone}`,
+        text: message
+    }
+    console.log('mail data lodaed')
+
+    transporter.sendMail(mailOptions, function (err, info) {
+        if (err) {
+            console.error('Error sending email:', err);
+            res.status(500).send('Internal Server Error');
+        } else {
+            console.log('Email sent successfully');
+            res.status(200).send('Email sent successfully');
+        }
+    });
 });
 
 const PORT = process.env.PORT || 8080; // Use the provided PORT or default to 80880

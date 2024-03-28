@@ -12,7 +12,7 @@ function handleSubmit() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ searchTerm: searchTerm, phone: phone, email: email, first: first, last: last })
+        body: JSON.stringify({ message: message, phone: phone, email: email, first: first, last: last })
     })
     .then(response => {
         if (!response.ok) {
@@ -25,8 +25,14 @@ function handleSubmit() {
     });
 }
 
+function addSubmitEventListener() {
+    
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(addSubmitEventListener, 5000); // Delay execution by 5 second
     document.getElementById('submitBtn').addEventListener('click', handleSubmit);
+    addSubmitEventListener(); 
 });
 
 console.log('loaded mailman')
