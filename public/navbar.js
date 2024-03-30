@@ -1,7 +1,7 @@
 console.log("navbar loading")
 
 // Navbar
-fetch('navbar.html')
+fetch('/navbar') // Fetch the navbar from the server
     .then(response => response.text())
     .then(html => {
         // Insert navbar HTML into navbarContainer div
@@ -11,7 +11,6 @@ fetch('navbar.html')
         const currentPage = window.location.pathname.split('/').pop(); 
         const navbarLinks = document.querySelectorAll('.nav-link'); 
 
-        //update curr page details
         navbarLinks.forEach(link => {
             const linkHref = link.getAttribute('href');
             if (linkHref === currentPage) { 
@@ -25,5 +24,4 @@ fetch('navbar.html')
     })
     .catch(error => console.error('Error fetching navbar:', error));
 
-    console.log("navbar loaded")
-    
+console.log("navbar loaded")

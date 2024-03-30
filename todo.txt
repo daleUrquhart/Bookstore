@@ -17,7 +17,8 @@ signup.html
 contact.html 
     evenly spaced form fields 
     if signed in prompt user info and message, else just prompt for the message
-
+    drop submit button so it doesnt touch message box 
+    
 displaylibrary.js
     redundant??
         it just displays booklookup with searchData being ""
@@ -27,3 +28,5 @@ index.js
 
 general 
     add verification and error handling console logs
+    do ii need signup mailer?
+    check if emial or user exists before sending email

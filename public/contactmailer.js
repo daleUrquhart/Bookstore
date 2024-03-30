@@ -19,6 +19,11 @@ function handleSubmit() {
             throw new Error('Failed to send message');
         }
         console.log('Message sent successfully');
+        //success message alert
+        successMessage.style.display = 'block';
+        setTimeout(() => {
+            successMessage.style.display = 'none';
+        }, 5000);
     })
     .catch(error => {
         console.error('Error sending message:', error);
