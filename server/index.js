@@ -4,6 +4,17 @@ const mysql = require('mysql')
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
+module.exports = function(app) {
+  app.use(
+    '/api',
+    createProxyMiddleware({
+      target: 'http://localhost:8080', // Change this to match your Express server port
+      changeOrigin: true,
+    })
+  );
+};
 
 // Create mysql connection
 var con = mysql.createConnection({
@@ -33,7 +44,8 @@ var transporter = nodemailer.createTransport({
 
 // App
 const app = express();
-const staticDir = path.join(__dirname, 'public');
+const staticDir = path.join(__dirname, '../client/public');
+const jsDir = path.join(__dirname, '../client/src');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs'); // Set EJS as the view engine
@@ -51,8 +63,8 @@ app.use(session({
     },
   }));
 
-// Static route
-app.use(express.static(staticDir));
+app.use(express.static(staticDir));// Static route
+app.use('/js', express.static(path.join(jsDir)));// JS route
 
 // Index route
 app.get('/', (req, res) => res.sendFile(path.join(staticDir, 'index.html')))

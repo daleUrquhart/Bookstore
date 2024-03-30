@@ -30,3 +30,27 @@ general
     add verification and error handling console logs
     do ii need signup mailer?
     check if emial or user exists before sending email
+
+
+STRUCTURE
+
+my-project/
+  ├── client/                  # React frontend
+  │   ├── public/              # Static assets (HTML, CSS)
+  │   │   ├── index.html       # Main HTML file
+  │   │   └── styles.css       # CSS stylesheets
+  │   ├── src/                 # React application source code
+  │   │   ├── App.js           # Main React component
+  │   │   ├── index.js         # Entry point for React application
+  │   │   └── ...
+  │   ├── node_modules/        # Dependencies installed via npm/yarn (created by create-react-app)
+  │   ├── package.json         # React project configuration and dependencies
+  │   └── ...
+  ├── server/                  # Node.js backend
+  │   ├── node_modules/        # Dependencies installed via npm/yarn
+  │   ├── index.js             # Entry point for the Node.js server
+  │   ├── package.json         # Server project configuration and dependencies
+  │   └── ...
+  ├── node_modules/            # Shared dependencies installed via npm/yarn
+  ├── package.json             # Root project configuration and dependencies
+  └── ...

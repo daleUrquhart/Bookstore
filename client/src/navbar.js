@@ -1,7 +1,7 @@
 console.log("navbar loading")
 
 // Navbar
-fetch('/navbar') // Fetch the navbar from the server
+fetch('/navbar.html')
     .then(response => response.text())
     .then(html => {
         // Insert navbar HTML into navbarContainer div
@@ -11,9 +11,11 @@ fetch('/navbar') // Fetch the navbar from the server
         const currentPage = window.location.pathname.split('/').pop(); 
         const navbarLinks = document.querySelectorAll('.nav-link'); 
 
+        //update curr page details
         navbarLinks.forEach(link => {
             const linkHref = link.getAttribute('href');
-            if (linkHref === currentPage) { 
+            const linkPage = linkHref.split('/').pop();
+            if (linkPage === currentPage) { 
                 link.classList.add('active'); 
                 link.setAttribute('aria-current', 'page'); 
             } else {
@@ -24,4 +26,5 @@ fetch('/navbar') // Fetch the navbar from the server
     })
     .catch(error => console.error('Error fetching navbar:', error));
 
-console.log("navbar loaded")
+    console.log("navbar loaded")
+    

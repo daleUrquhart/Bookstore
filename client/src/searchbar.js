@@ -1,7 +1,7 @@
 console.log("serachbar loading")
 
 // Searchbar
-fetch('searchbar.html')
+fetch('/searchbar.html')
     .then(response => response.text())
     .then(html => {
         // Insert navbar HTML into navbarContainer div

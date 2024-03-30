@@ -1,7 +1,7 @@
 console.log("contents loading")
 
 // Searchbar
-fetch('signupform.html')
+fetch('/signupform.html')
     .then(response => response.text())
     .then(html => {
         // Insert contents HTML into contentsContainer div
