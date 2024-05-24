@@ -1,4 +1,4 @@
 # Bookstore
-Mock bookstore website
+Traditionally structured bookstore website
 
 Node.js, js, html, css, mysql
